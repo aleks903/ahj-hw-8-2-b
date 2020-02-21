@@ -96,6 +96,7 @@ wsServer.on('connection', (ws, req) => {
       return o.readyState === WS.OPEN;
     })
     .forEach(o => o.send(JSON.stringify({type: 'del user'})));
+    ws.close();
   });
   // new users
   [...wsServer.clients]
